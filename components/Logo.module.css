@@ -1,8 +1,8 @@
-/* Mobile */
-@media (max-width: 700px) {
-  .content {
-    padding: 4rem;
+@media (prefers-color-scheme: dark) {
+  .vercelLogo {
+    filter: invert(1);
   }
+
 }
 
 @keyframes rotate {

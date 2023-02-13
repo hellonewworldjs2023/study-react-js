@@ -1,21 +1,21 @@
 
 import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
+import classes from './Center.module.css'
 
 
 export function Center() {
   return (
     
-        <div className={styles.center}>
+        <div className={classes.center}>
           <Image
-            className={styles.logo}
+            className={classes.logo}
             src="/next.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
             priority
           />
-          <div className={styles.thirteen}>
+          <div className={classes.thirteen}>
             <Image
               src="/thirteen.svg"
               alt="13"

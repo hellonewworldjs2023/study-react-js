@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '@/styles/Home.module.css';
+import classes from './Headline.module.css';
 
 
 export function Headline(props) {
@@ -7,7 +7,7 @@ export function Headline(props) {
     <div>      
         <p>
         Get started by editing&nbsp;
-        <code className={styles.code}>src/pages/{props.path}.js</code>
+        <code className= {classes.code}>src/pages/{props.path}.js</code>
         </p>
           
     </div>    
