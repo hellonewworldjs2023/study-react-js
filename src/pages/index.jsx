@@ -1,10 +1,19 @@
 import Head from 'next/head'
 import { Main } from 'src/components/Main/Main'
 import { Header } from 'src/components/Header/Header'
+import { useCallback } from 'react';
 
 
 
 export default function Home() {
+  const foo = 1;
+
+  const handleClick = useCallback((e) => {
+    console.log(e.target.href);
+    e.preventDefault();
+    alert(foo);
+  },[]); 
+
   return (
     <>
       <Head>
@@ -13,8 +22,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
+      <a
+        href='/about' 
+        onClick={handleClick}
+      >
+        ボタン
+      </a>
       <Main path="index" 
       />
     </>
-  )
+  );
 }
