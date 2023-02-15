@@ -1,8 +1,8 @@
-import classes from './Main.module.css'
-import { Logo } from 'components/Logo'
-import { Links } from 'components/Links'
-import { Headline } from 'components/Headline'
-import { Center } from 'components/Center'
+import classes from 'src/components/Main/Main.module.css';
+import { Logo } from 'src/components/Logo/Logo';
+import { Links } from 'src/components/Links/Links';
+import { Headline } from 'src/components/Headline/Headline';
+import { Center } from 'src/components/Center/Center';
 
 
 export function Main(props) {
