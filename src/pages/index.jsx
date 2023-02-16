@@ -3,6 +3,7 @@ import { Main } from 'src/components/Main/Main'
 import { Header } from 'src/components/Header/Header'
 import { useCallback  } from 'react';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 
 
@@ -35,12 +36,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <a
+      <Link
         href='/about' 
         onClick={handleClick}
       >
         ボタン
-      </a>
+      </Link>
       <Main path="index" 
       />
     </>
