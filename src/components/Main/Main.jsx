@@ -5,7 +5,10 @@ import { Headline } from 'src/components/Headline/Headline';
 import { Center } from 'src/components/Center/Center';
 
 
+
 export function Main(props) {
+  
+
   return (
       <main className={classes.main}>
         <div className={classes.description}>

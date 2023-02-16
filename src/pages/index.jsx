@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import { Main } from 'src/components/Main/Main'
 import { Header } from 'src/components/Header/Header'
-import { useCallback } from 'react';
+import { useCallback  } from 'react';
+import { useEffect } from 'react';
+
 
 
 
@@ -12,7 +14,18 @@ export default function Home() {
     console.log(e.target.href);
     e.preventDefault();
     alert(foo);
-  },[]); 
+  },[]);
+  
+  useEffect(()=>{
+    console.log("マウント時")
+    document.body.style.backgroundColor = "lightblue";
+
+    return() =>{
+      console.log("アンマウント時")
+      document.body.style.backgroundColor = ""; 
+    }
+  },[])
+
 
   return (
     <>
