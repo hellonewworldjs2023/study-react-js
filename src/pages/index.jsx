@@ -1,17 +1,20 @@
 import Head from 'next/head'
 import { Main } from 'src/components/Main/Main'
 import { Header } from 'src/components/Header/Header'
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useCallback  } from 'react';
+
 
 
 export default function Home() {
   const [count,setCount] = useState(1);
-  // let foo = 1;
 
-  const handleClick = (e) => {
-    // foo = foo + 1;
-    setCount((count) => count + 1);
-  };
+
+  const handleClick = useCallback(() => {
+    console.log(count);
+    if(count < 10){
+      setCount((count) => count + 1);
+    }
+  },[count]);
   
   useEffect(()=>{
     document.body.style.backgroundColor = "lightblue";
@@ -19,8 +22,8 @@ export default function Home() {
     return() =>{
       document.body.style.backgroundColor = ""; 
     }
-  },[]);
-  console.log(count);
+  },[count]);
+  // console.log(count);
 
 
   return (
