@@ -7,6 +7,8 @@ import { useEffect, useState,useCallback  } from 'react';
 
 export default function Home() {
   const [count,setCount] = useState(1);
+  const [text,setText] = useState("");
+  const [isShow,setIsShow] = useState(false);
 
 
   const handleClick = useCallback(() => {
@@ -15,6 +17,19 @@ export default function Home() {
       setCount((count) => count + 1);
     }
   },[count]);
+
+  const handleDisplay = useCallback(() => {
+    setIsShow((isShow) => !isShow);
+      // return isShow ? false : true;  
+  },[]);
+
+  const handleChange = useCallback((e) => {
+    if(e.target.value.length > 5){
+      alert("5文字以内にしてください");
+      return;
+    }    
+    setText(e.target.value);
+    },[]);
   
   useEffect(()=>{
     document.body.style.backgroundColor = "lightblue";
@@ -23,7 +38,10 @@ export default function Home() {
       document.body.style.backgroundColor = ""; 
     }
   },[count]);
-  // console.log(count);
+  // console.log(text);
+
+
+  
 
 
   return (
@@ -34,8 +52,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <h1>{count}</h1>
-      <button onClick={handleClick}>ボタン</button>
+      {isShow ? <h1>{count}</h1> : null}
+      <button onClick={handleClick}>ボタン</button><br></br>
+      <button onClick={handleDisplay}>{isShow ? "非表示":"表示"}</button><br></br>
+      <input 
+      type="text" 
+      value={text} 
+      onChange={handleChange}/>
       <Main path="index" 
       />
     </>
