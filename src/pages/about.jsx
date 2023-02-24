@@ -1,9 +1,16 @@
 import Head from 'next/head'
 import { Main } from 'src/components/Main/Main'
 import { Header } from 'src/components/Header/Header';
+import { useCounter } from '@/hooks/useCounter';
+import { useInputArray } from '@/hooks/useInputArray';
+import { useBgLightBlue } from '@/hooks/useBgLightBlue';
 
 
-export default function Home() {
+export default function About() {
+  const {count,isShow,handleClick,handleDisplay} = useCounter();
+  const {text,array,handleChange,handleAdd} = useInputArray();
+  useBgLightBlue();
+
   return (
     <>
       <Head>
@@ -12,6 +19,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header/>
+      {isShow ? <h1>{count}</h1> : null}
+      <button onClick={handleClick}>ボタン</button><br/>
+      <button onClick={handleDisplay}>{isShow ? "非表示":"表示"}</button><br/>
+      
+      <input 
+      type="text" 
+      value={text} 
+      onChange={handleChange}/><br/>
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map( item => {
+         return(<li key={item}>{item}</li>)
+        })}
+      </ul>
       <Main  path="about"/>
     </>
   )
