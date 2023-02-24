@@ -9,6 +9,7 @@ export default function Home() {
   const [count,setCount] = useState(1);
   const [text,setText] = useState("");
   const [isShow,setIsShow] = useState(false);
+  const [array,setArray] = useState([]);
 
 
   const handleClick = useCallback(() => {
@@ -30,6 +31,17 @@ export default function Home() {
     }    
     setText(e.target.value);
     },[]);
+
+  const handleAdd = useCallback(() =>{
+    setArray((prevArray)=> {
+      if(prevArray.some(item => item === text)){
+        alert("同じ要素が既に存在します。");
+        return prevArray;
+      }
+      const newArray = [...prevArray,text];
+      return newArray;
+    });
+  },[text])
   
   useEffect(()=>{
     document.body.style.backgroundColor = "lightblue";
@@ -40,10 +52,6 @@ export default function Home() {
   },[count]);
   // console.log(text);
 
-
-  
-
-
   return (
     <>
       <Head>
@@ -53,12 +61,18 @@ export default function Home() {
       </Head>
       <Header />
       {isShow ? <h1>{count}</h1> : null}
-      <button onClick={handleClick}>ボタン</button><br></br>
-      <button onClick={handleDisplay}>{isShow ? "非表示":"表示"}</button><br></br>
+      <button onClick={handleClick}>ボタン</button><br/>
+      <button onClick={handleDisplay}>{isShow ? "非表示":"表示"}</button><br/>
       <input 
       type="text" 
       value={text} 
-      onChange={handleChange}/>
+      onChange={handleChange}/><br/>
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map( item => {
+         return(<li key={item}>{item}</li>)
+        })}
+      </ul>
       <Main path="index" 
       />
     </>
