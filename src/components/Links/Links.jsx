@@ -1,5 +1,7 @@
 import classes from 'src/components/Links/Links.module.css'
 import { Inter } from '@next/font/google'
+import { useState,useCallback } from 'react'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,9 +25,17 @@ const ITEMS =[
 ]
 
 export function Links() {
+  const [items,setItems] = useState(ITEMS);
+  const handleReduce = useCallback(() =>{
+    setItems(prevItems =>{
+      return prevItems.slice(0,prevItems.length - 1);
+    });
+  },[])
+
   return (
         <div className={classes.grid}>
-          {ITEMS.map(item =>{
+          <button onClick={handleReduce}>減らす</button>
+          {items.map(item =>{
             return(
               <a
               key={item.href}
