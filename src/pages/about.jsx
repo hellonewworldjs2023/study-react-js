@@ -3,8 +3,6 @@ import { Main } from 'src/components/Main/Main'
 import { Header } from 'src/components/Header/Header';
 
 
-
-
 export default function About({
   count,
   isShow,
