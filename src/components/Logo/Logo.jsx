@@ -2,7 +2,7 @@ import Image from 'next/image';
 import classes from 'src/components/Logo/Logo.module.css';
 
 
-export function Logo() {
+export const Logo = () => {
     return (  
       <div>
           <a

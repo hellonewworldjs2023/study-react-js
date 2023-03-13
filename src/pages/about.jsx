@@ -3,19 +3,7 @@ import { Main } from 'src/components/Main/Main'
 import { Header } from 'src/components/Header/Header';
 
 
-export default function About({
-  doubleCount,
-  isShow,
-  handleClick,
-  handleDisplay,
-  text,
-  array,
-  handleChange,
-  handleAdd}) 
-{
- 
- 
-
+ const About = (props) =>{
   return (
     <>
       <Head>
@@ -25,16 +13,16 @@ export default function About({
       </Head>
       <Header/>
       
-      <button onClick={handleClick}>ボタン</button><br/>
-      <button onClick={handleDisplay}>{isShow ? "非表示":"表示"}</button><br/>
-      {isShow ? <h1>{doubleCount}</h1> : null}
+      <button onClick={props.handleClick}>ボタン</button><br/>
+      <button onClick={props.handleDisplay}>{props.isShow ? "非表示":"表示"}</button><br/>
+      {props.isShow ? <h1>{props.doubleCount}</h1> : null}
       <input 
       type="text" 
-      value={text} 
-      onChange={handleChange}/><br/>
-      <button onClick={handleAdd}>追加</button>
+      value={props.text} 
+      onChange={props.handleChange}/><br/>
+      <button onClick={props.handleAdd}>追加</button>
       <ul>
-        {array.map( item => {
+        {props.array.map( item => {
          return(<li key={item}>{item}</li>)
         })}
       </ul>
@@ -42,3 +30,5 @@ export default function About({
     </>
   )
 }
+
+export default About;

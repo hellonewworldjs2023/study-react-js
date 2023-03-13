@@ -3,7 +3,7 @@ import Image from 'next/image'
 import classes from 'src/components/Center/Center.module.css'
 
 
-export function Center() {
+export const Center = () => {
   return (
     
         <div className={classes.center}>
